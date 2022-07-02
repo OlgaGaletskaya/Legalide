@@ -1,0 +1,744 @@
+@import "_reset";
+$text-color: #252B42;
+$second-text-color: #737373;
+$light-text-color: #FFFFFF;
+$secondary-color-2: #784F33;
+$secondary-color-4:#295C7A;
+
+
+@mixin font-p($weight, $fz, $lh){
+    font-style: normal;
+    font-weight: $weight;
+    font-size: $fz;
+    line-height: $lh;
+    letter-spacing: 0.2px;
+}
+
+@mixin Martel($weight, $fz, $lh) {
+    font-family: 'Martel';
+    @include font-p($weight, $fz, $lh);
+}
+@mixin Montserrat($weight, $fz, $lh) {
+    font-family: 'Montserrat';
+    @include font-p($weight, $fz, $lh);
+}
+@mixin Open-Sans($weight, $fz, $lh) {
+    font-family: 'Open Sans';
+    @include font-p($weight, $fz, $lh);
+}
+
+@mixin h1{
+    @include Martel(900, 58px, 65px);
+}
+@mixin h2{
+    @include Martel(700, 40px, 50px);
+}
+@mixin h3{
+    @include Martel(700, 24px, 32px);
+    letter-spacing: 0.1px;
+}
+@mixin h4{
+    @include Montserrat(500, 20px, 30px);
+    color: $second-text-color;
+}
+@mixin h5 {
+    @include Martel(700, 16px, 24px);
+    letter-spacing: 0.1px;
+}
+@mixin h6 {
+    @include Open-Sans(700, 14px, 24px);
+}
+@mixin btn_txt{
+    @include Open-Sans(700, 14px, 28px);
+}
+@mixin mobile-menu{
+    @include Open-Sans(400, 30px, 45px);
+}
+
+@mixin paragraph{
+    @include Open-Sans(400, 14px, 20px);
+    color: $second-text-color;
+}
+
+@mixin list{
+    @include Open-Sans(400, 20px, 30px);
+}
+@mixin link{
+    @include Open-Sans(600, 14px, 24px);
+    color: $second-text-color;
+}
+
+
+
+@mixin f-r-cen-sb($gap) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: $gap;
+}
+@mixin row($gap) {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: $gap;
+    
+}
+@mixin row-start($gap) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    gap: $gap;
+    width: 100%;
+    
+}
+@mixin col($gap) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    gap: $gap;
+    
+}
+@mixin col-start($gap) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    gap: $gap;
+    
+}
+
+@mixin btn($ph, $pw, $br) {
+    @include col(10px);
+    padding: $ph $pw;
+    border-radius: $br;
+    @include btn_txt; 
+}
+
+body{
+    color: $text-color;
+}
+.header {
+    position: absolute;
+    width: 100%;
+    &__inner {
+        @include f-r-cen-sb(0);
+        height: 104px;
+    }
+}
+.container {
+    max-width: 1070px;
+    padding: 0 10px;
+    margin: 0 auto;
+    position: relative;
+}
+.logo {
+    @include h3;
+    color: $text-color;
+}
+.menu {
+    @include row(23px);
+    &__list {
+        @include row(31px);
+    }
+
+    &__link {
+        @include link;
+    }
+
+    &__bts {
+        @include row(16px);
+        padding: 2px 20px;
+    }
+    &__tog-btn {
+        display: none;
+    }
+}
+.btn2 {
+    height: 20px;
+    width: 20px;
+}
+
+
+.main {
+    background-image: url("../img/main.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    &__inner {
+        @include row(30px);
+        padding-top: 104px;
+    }
+
+    &__cont {
+        @include col-start(34px);
+        max-width: 509px;
+    }
+
+    &__title {
+        @include h1;
+    }
+
+    &__subtitle {
+        @include h4;
+    }
+
+    &__btns {
+        @include row-start(10px);
+    }
+
+    &__img {
+        max-width: 509px;
+    }
+    &__img1 {
+        margin: 0 -28px;
+    }
+
+    &__btn-get {
+        @include btn(10px, 36px, 37px);
+        background-color: $secondary-color-2;
+        color: #FFFFFF;
+    }
+
+    &__btn-more {
+        @include btn(10px, 36px, 37px);
+        border: 1px solid $secondary-color-2;
+        color: $secondary-color-2;
+    }
+}
+
+.practice-areas {
+
+    &__inner {
+        @include col(80px);
+        padding: 100px 0px;
+    }
+
+    &__main-content {
+        @include col(10px);
+    }
+
+    &__title {
+        @include h2;
+    }
+
+    &__subtitle {
+        @include paragraph;
+        text-align: center;
+    }
+
+    &__cards {
+        @include row(30px);
+        width: 100%;
+    }
+    &__item {
+        @include col(10px);
+        padding: 30px 40px;
+        width: 100%;
+        box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+        background: #F9F9F9;
+        border-radius: 5px;
+    }
+
+    &__img {
+        width: 53px;
+        height: 53px;
+    }
+
+    &__txt {
+        @include h5;
+    }
+    &__item:hover{
+        background-color: $secondary-color-4;
+        color: #FFFFFF;
+    }
+    &__item:hover &__img{
+        filter: brightness(5);
+    }
+}
+
+.practice-advice {
+    background: #FAFAFA;
+    text-align: center;
+    &__inner {
+        @include col(0);
+        padding: 80px 0px;
+    }
+
+    &__main-content {
+        @include col(10px);
+        padding: 45px 0px;
+    }
+
+    &__title {
+        @include h2();
+    }
+
+    &__subtitle {
+        @include paragraph();
+    }
+
+    &__cards {
+        @include row-start(30px);
+        align-items: stretch;
+    }
+
+    &__card-item {
+        width: 100%;
+        background-color: #fff;
+        text-align: start;
+        margin: 0 auto;
+    }
+
+    &__card-cont {
+        @include col-start(15px);
+        padding: 30px;
+    }
+
+    &__card-title {
+        @include h5();
+        width: 81%;
+    }
+
+    &__card-subtitle {
+        @include paragraph();
+        width: 90%;
+    }
+    &__cards1100 {
+        @include col(30px);
+        width: 100%;
+
+    }
+    &__cards-row {
+        @include row(30px);
+        width: 100%;
+
+    }
+    &__card-img {
+        img{
+            width: 100%;
+        }
+        
+    }
+}
+.about {
+    
+
+    &__inner {
+        @include col(100px);
+        padding: 100px 0;
+    }
+
+    &__main-content {
+        @include col(15px);
+    }
+
+    &__title {
+        @include h2();
+    }
+
+    &__subtitle {
+        @include paragraph();
+        text-align: center;
+    }
+
+    &__cont {
+        @include row(120px);
+    }
+
+    &__video {
+        background-image: url("../card-item.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-width: 600px;
+        height: 442px;
+    }
+
+    &__cont-txt {
+        @include col-start(30px);
+    }
+
+    &__cont-main-content {
+        @include col-start(10px);
+        padding: 20px 0;
+    }
+
+    &__cont-title {
+        @include h2();
+    }
+
+    &__cont-subtitle {
+        @include paragraph();
+        width: 91%;
+        
+    }
+
+    &__cont-card {
+        @include row-start(20px);
+        align-items: flex-start;
+    }
+
+    &__cont-card-img {
+        width: 32px;
+        height: 32px;
+    }
+
+    &__cont-card-main-content {
+        @include col-start(5px);
+    }
+
+    &__cont-card-title {
+        @include h5();
+    }
+
+    &__cont-card-subtitle {
+        @include h6();
+        color: $second-text-color;
+    }
+}
+
+.clients {
+    position: relative;
+    background: #FAFAFA;
+
+    &__inner {
+       @include col(0);
+    }
+
+    &__cont {
+        @include row(30px);
+        padding: 50px 0;
+        
+    }
+
+    &__item {
+        padding: 0 25px;
+        img {
+            width: 100%;
+        }
+    }
+
+    &__subscribe {
+        margin: 20px 0;
+        padding: 30px 50px;
+        @include row-start(180px);
+        background: linear-gradient(270deg, #295C7A -1.04%, #0072B5 100%);
+        color: #FFFFFF;
+    }
+
+
+    &__cta {
+        @include h3();
+        text-align: left;
+    }
+    &__input {
+        position: relative;
+       
+    }
+    &__txt {
+        width: 450px;
+        height: 60px;
+        @include btn(15px, 20px, 5px);
+        background: #F9F9F9;
+        border: 1px solid #E6E6E6;
+        padding-right: 0;
+        @include Montserrat(400, 14px, 28px);
+    }
+    &__btn {
+        position: absolute;
+        right: 0px;
+        top: 0;
+        background: #D0A144;
+        border: 1px solid #E6E6E6;
+        border-radius: 0px 5px 5px 0px;
+        padding: 15px 22.5px;
+        color: #FFFFFF;
+        @include Montserrat(400, 14px, 28px);
+    }
+    &__bg {
+        position: absolute;
+        bottom: 0;
+        background: #252B42;
+        height: 77px;
+        width: 100%;
+      
+    }
+}
+.contact {
+    background: #F3F3F3;
+    &__inner {
+        padding: 80px 0px;
+        @include col(80px);
+    }
+
+    &__main-content {
+        @include col(10px);
+    }
+
+    &__title {
+        @include h2();
+    }
+
+    &__subtitle {
+        @include paragraph();
+    }
+
+    &__cont {
+        @include row(30px);
+    }
+
+    &__card {
+        @include col(15px);
+        background: #FFFFFF;
+        padding: 50px 40px;
+    }
+    &__card:hover {
+        padding: 80px 40px;
+        color: #FFFFFF;
+        background: #252B42;
+    }
+
+    &__card-cont {
+        @include h6();
+    }
+
+    &__card-title {
+        @include h5();
+    }
+
+    &__card-btn {
+        @include btn(10px, 20px, 5px);
+        border: 1px solid #D0A144;
+        @include h6();
+        color: #D0A144;
+    }
+}
+.reqvest {
+
+    &__inner {
+        @include row-start(360px);
+        padding: 40px 0;
+    }
+
+    &__main {
+        @include col-start(10px);
+        text-align: left;
+    }
+
+    &__title {
+        @include h3();
+    }
+
+    &__subtitle {
+        @include paragraph();
+    }
+
+    &__button {
+        
+    }
+
+    &__btn {
+        @include btn(15px, 40px, 5px);
+        margin: 0 39px;
+        background: #784F33;
+        color: #FFFFFF;
+    }
+}
+
+.footer {
+    background: linear-gradient(270deg, #295C7A -1.04%, #0072B5 100%);
+    color: #FFFFFF;
+
+    &__inner {
+        @include row(30px);
+        justify-content: space-between;
+        padding: 50px 0;
+    }
+
+    &__col {
+        @include col-start(20px);
+        text-align: left;
+    }
+
+    &__title {
+        @include h5();
+    }
+    &__link {
+        @include link();
+        color: #FFFFFF;
+    }
+    &__cont {
+        @include col-start(10px);
+        justify-content: flex-start;
+    }
+    &__contacts {
+        min-width: 320px;
+    }
+    &__support {
+        @include row(10px);
+        @include h6();
+        color: #FFFFFF;
+    }
+}
+
+.sub-footer {
+
+    &__inner {
+        @include row(10px);
+        justify-content: space-between;
+        padding: 25px 0;
+    }
+
+    &__txt {
+        @include h6();
+        color: $second-text-color;
+    }
+
+    &__msgrs {
+        @include row(20px);
+        padding: 0 40px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1100px){
+    .main{
+        &__img1{
+            width: 100%;
+        }
+    }
+    .about{
+        &__video{
+            min-width: 400px;
+        }
+    }
+    .contact {
+        &__cont {
+            @include row(0);
+        }
+    }
+    .reqvest {
+
+        &__inner {
+            @include row(0px);
+            justify-content: space-between;
+            padding: 40px 0;
+        }
+    }
+}
+
+@media (max-width: 865px){
+    .main{
+        &__inner{
+            @include col(108px);
+
+            text-align: center;
+        }
+        &__cont{
+            align-items: stretch;
+        }
+        &__title {
+            @include h2;
+        }
+        &__btns {
+            @include col(20px);
+        }
+       
+    }
+    .practice-advice{
+        &__cards{
+            @include col(30px);
+        }
+    }
+    .about{
+        &__cont {
+            @include col(120px);
+        }
+        .about{
+            &__video{
+                min-width: 333px;
+            }
+        }
+    }
+    .clients{
+        &__subscribe{
+            @include col(30px);
+        }
+        &__cont {
+            @include col(60px);
+            padding: 50px 0;
+        }
+        &__form {
+            width: 100%;
+        }
+        &__cta {
+            text-align: center;
+        }
+    }
+    .contact {
+        &__cont {
+            @include col(30px);
+        }
+    }
+    .reqvest {
+
+        &__inner {
+            @include col-start(50px);
+            padding: 40px 0;
+            padding-left: 90px;
+        }
+    }
+    .footer {
+
+        &__inner {
+            @include col-start(30px);
+            padding-left: 90px;
+        }
+        &__contacts {
+            min-width: none;
+        }
+    }
+}
+@media (max-width: 570px){
+    .container {
+        max-width: 95%;
+    }
+    .menu{
+        &__tog-btn {
+            display: block;
+        }
+        &__list {
+            display: none;
+        }
+    }
+    .practice-areas{
+        &__cards {
+            @include col(30px);
+        }
+    }
+    .clients {
+        &__txt{
+            width: 337px;
+        }
+        &__subscribe {
+            padding: 20px 0;
+            width: 100%;
+        }
+    }
+    .sub-footer {
+
+        &__inner {
+            @include col(50px);
+        }
+    }
+}
